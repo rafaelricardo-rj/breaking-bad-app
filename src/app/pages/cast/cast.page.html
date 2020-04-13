@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>cast</ion-title>
+    <ion-title class="ion-text-center">Cast</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-infinite-scroll threshold="100px" id="infinite-scroll">
+       <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
+       </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
