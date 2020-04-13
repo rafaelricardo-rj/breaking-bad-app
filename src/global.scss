@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// from here, my changes
+
+// got this hint from https://chrisgriffith.wordpress.com/2019/03/02/background-images-for-ionic-4/ by @chrisgriffith
+// https://twitter.com/chrisgriffith
+body {
+  background: url(/assets/img/breaking-bad-cover-mobile.jpg) no-repeat center/cover fixed;
+}
+ion-content {
+  --background: none;
+}
+//-----------------------------------------------------------------------------------------
