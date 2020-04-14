@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>episodes</ion-title>
+    <ion-title class="ion-text-center">Episodes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-list id="episodes-list">
+        <ion-item button detail lines="inset" *ngFor="let episode of (episodes | async)">
+            <ion-label>
+                <h2>{{ episode.title }}</h2>
+                <p>Air date: {{ episode.air_date }}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>
