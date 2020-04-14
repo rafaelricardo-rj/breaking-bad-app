@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,18 +10,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CastPage implements OnInit {
 
-    cast: Observable<any>;
-    constructor(private http: HttpClient) { }
+    characters: Observable<any>;    
+    chars: any;
+
+    constructor(private router: Router, private http: HttpClient) {}
 
     ngOnInit() {
-	
-        this.cast = this.http.get('https://www.breakingbadapi.com/api/characters');
-	
-        this.cast.subscribe(data => {
-	
-            console.log('my data: ', data);
-	
-        });
+        this.characters = this.http.get('https://www.breakingbadapi.com/api/characters');
     }
 
 }
