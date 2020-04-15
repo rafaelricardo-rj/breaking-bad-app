@@ -15,6 +15,8 @@ import { EpisodesPage } from './episodes.page';
     IonicModule,
     EpisodesPageRoutingModule
   ],
-  declarations: [EpisodesPage]
+  declarations: [
+      EpisodesPage
+    ]
 })
 export class EpisodesPageModule {}
