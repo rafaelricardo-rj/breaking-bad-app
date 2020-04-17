@@ -16,6 +16,7 @@ export class CastPage implements OnInit {
 
     ngOnInit() {
         this.characters = this.http.get('https://www.breakingbadapi.com/api/characters');
+        //this.characters = this.http.get('../servicos/characters.json');
     }
 
 }

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EpisodesPageRoutingModule } from './episodes-routing.module';
 
 import { EpisodesPage } from './episodes.page';
+import { MyFilterPipePipe } from '../../pipes/my-filter-pipe.pipe';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { EpisodesPage } from './episodes.page';
     EpisodesPageRoutingModule
   ],
   declarations: [
-      EpisodesPage
+      EpisodesPage,
+      MyFilterPipePipe
     ]
 })
 export class EpisodesPageModule {}
