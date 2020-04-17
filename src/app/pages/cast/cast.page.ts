@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, combineLatest } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-cast',
@@ -29,14 +30,14 @@ export class CastPage implements OnInit {
     loadData(event){
         
         this.charactersMore = this.http.get('https://www.breakingbadapi.com/api/characters?limit=15&offset=15');
-
-        this.characters = combineLatest(this.characters, this.charactersMore).pipe(
+        // https://stackoverflow.com/questions/53492572/cannot-use-map-operator-of-rxjs-in-angular-project
+        /*this.characters = combineLatest(this.characters, this.charactersMore).pipe(
                 map(([data, changes]) => {
                     const newData = [...data];
                     // here change newData based on the changes
                     return newData;
                 })
-);
+        );*/
         
         event.target.complete();
 
