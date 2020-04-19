@@ -7,7 +7,7 @@
 <ion-content>
 
     <ion-list id="characters-list">
-        <ion-item button detail lines="inset" *ngFor="let character of (characters | async)">
+        <ion-item button detail lines="inset" *ngFor="let character of chars">
             <ion-avatar slot="start">
                 <img src="{{ character.img }}">
             </ion-avatar>
@@ -17,7 +17,7 @@
             </ion-label>
         </ion-item>
     </ion-list>
-    <ion-infinite-scroll threshold="100px" id="infinite-scroll" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll threshold="15%" id="infinite-scroll" (ionInfinite)="loadData($event)">
         <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>

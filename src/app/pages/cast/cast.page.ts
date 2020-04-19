@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, combineLatest } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-cast',
@@ -11,43 +9,37 @@ import { map } from 'rxjs/operators'
 })
 export class CastPage implements OnInit {
 
-    characters: Observable<any>;
-    charactersMore: Observable<any>;
+    chars = [];
+    /**
+     * This request would give you an array of 15 characters, starting at index 0 (the 1 first id).
+     */
+    limit = 15;
+    index = 0;
 
-    constructor(private router: Router, private http: HttpClient) {}
+    constructor(private router: Router, private http: HttpClient) {  }
 
     ngOnInit() {
-        this.characters = this.http.get('https://www.breakingbadapi.com/api/characters?limit=15&offset=0')
-        this.characters.subscribe(result => {}, erro => {
+       this.loadChars();
+    }
+
+    loadChars(event?){
+        this.http.get(`https://www.breakingbadapi.com/api/characters?limit=${this.limit}&offset=${this.index}`)
+            .subscribe(res => {  this.chars = this.chars.concat(res) }, erro => {
                 if(erro.status == 429) {
                   console.log('Too many requests. Try again later.');
                 }
-              })
-        //this.characters = this.http.get('../servicos/characters.json');
-        this.characters.subscribe(data => console.log(data.length));
+            })
+        if(event){
+            event.target.complete();
+        }
     }
 
-    loadData(event){
-        
-        this.charactersMore = this.http.get('https://www.breakingbadapi.com/api/characters?limit=15&offset=15');
-        // https://stackoverflow.com/questions/53492572/cannot-use-map-operator-of-rxjs-in-angular-project
-        /*this.characters = combineLatest(this.characters, this.charactersMore).pipe(
-                map(([data, changes]) => {
-                    const newData = [...data];
-                    // here change newData based on the changes
-                    return newData;
-                })
-        );*/
-        
-        event.target.complete();
-
-            // App logic to determine if all data is loaded
-            // and disable the infinite scroll
-            /*if (this.loadedData.length > 30) {
-                this.util.presentToast('No more data available', true, 'bottom', 1500);
-                event.target.disabled = true;
-            }*/
-        this.characters.subscribe(data => console.log('repopulado '+data.length));
+    loadData(event?){
+        this.index += 15;
+        this.loadChars(event);
+        if(this.index > 62){
+            event.target.disable = true;
+        }
     }
 
 }
