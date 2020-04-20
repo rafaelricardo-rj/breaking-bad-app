@@ -1,5 +1,7 @@
 {
   "name": "breaking-bad-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
