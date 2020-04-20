@@ -13,6 +13,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('../cast/cast.module').then( m => m.CastPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../cast-details/cast-details.module').then( m => m.CastDetailsPageModule)
           }
         ]
       },
@@ -47,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/films',
+    redirectTo: '/tabs/cast',
     pathMatch: 'full'
   }
 ];

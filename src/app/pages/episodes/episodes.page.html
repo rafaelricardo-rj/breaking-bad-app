@@ -4,10 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-list id="episodes-list">
+<ion-content *ngIf="episodes">
+    <ion-list class="episodes-list">
         <ion-list-header>
-          <ion-chip color="danger">
+            <ion-chip color="danger">
             <ion-label>Season 1</ion-label>
         </ion-chip>
         </ion-list-header>
@@ -18,7 +18,7 @@
             </ion-label>
         </ion-item>
     </ion-list>
-    <ion-list id="episodes-list">
+    <ion-list class="episodes-list">
         <ion-list-header>
             <ion-chip color="danger">
                 <ion-label>Season 2</ion-label>
@@ -31,7 +31,7 @@
             </ion-label>
         </ion-item>
     </ion-list>
-    <ion-list id="episodes-list">
+    <ion-list class="episodes-list">
         <ion-list-header>
             <ion-chip color="danger">
                 <ion-label>Season 3</ion-label>
@@ -44,7 +44,7 @@
             </ion-label>
         </ion-item>
     </ion-list>
-    <ion-list id="episodes-list">
+    <ion-list class="episodes-list">
         <ion-list-header>
             <ion-chip color="danger">
                 <ion-label>Season 4</ion-label>
@@ -57,7 +57,7 @@
             </ion-label>
         </ion-item>
     </ion-list>
-    <ion-list id="episodes-list">
+    <ion-list class="episodes-list">
         <ion-list-header>
             <ion-chip color="danger">
                 <ion-label>Season 5</ion-label>

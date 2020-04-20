@@ -7,7 +7,7 @@
 <ion-content>
 
     <ion-list id="characters-list">
-        <ion-item button detail lines="inset" *ngFor="let character of chars">
+        <ion-item button detail lines="inset" *ngFor="let character of chars" (click)="openDetails(character)">
             <ion-avatar slot="start">
                 <img src="{{ character.img }}">
             </ion-avatar>

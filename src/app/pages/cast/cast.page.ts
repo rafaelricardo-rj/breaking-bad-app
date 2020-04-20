@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { ApiService } from 'src/app/services/api.service';
 import { ToastController } from '@ionic/angular';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-cast',
@@ -21,9 +21,9 @@ export class CastPage implements OnInit {
 
     constructor(
         private router: Router, 
-        private http: HttpClient, 
         private api: ApiService, 
-        public toastController: ToastController
+        public toastController: ToastController,
+        public helpService: HelperService
         ) {  }
 
     ngOnInit() {
@@ -33,9 +33,8 @@ export class CastPage implements OnInit {
     loadChars(event?){
         this.api.getPaginatedCharacters(this.limit, this.index)
             .subscribe(res => {  this.chars = this.chars.concat(res); }, erro => {
-                if(erro.status == 429) {
-                  console.log('Too many requests. Try again later.');
-                  this.presentToast('Too many requests. Try again later.');
+                if(erro.status) {
+                  this.helpService.toastHttpCodeError(erro.status);
                 }
             })
         if(event){
@@ -51,12 +50,12 @@ export class CastPage implements OnInit {
         }
     }
 
-    async presentToast(msg: string) {
-        const toast = await this.toastController.create({
-            message: msg,
-            duration: 2000
-        });
-        toast.present();
+    openDetails(character) {
+	
+        //let split = character.url.split('/');
+        //let characterId = split[split.length-2];
+        this.router.navigateByUrl(`/tabs/cast/${character.char_id}`);
+        
     }
 
 }

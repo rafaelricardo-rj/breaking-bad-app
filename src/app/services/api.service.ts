@@ -21,4 +21,8 @@ export class ApiService {
     getEpisodesAll() {
         return this.http.get(`${this.urlApi}/episodes`);
     }
+
+    getCharacter(id){
+        return this.http.get(`${this.urlApi}/characters/${id}`);
+    }
 }
