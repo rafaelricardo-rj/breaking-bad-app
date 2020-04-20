@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from 'src/app/services/api.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cast',
@@ -15,18 +17,25 @@ export class CastPage implements OnInit {
      */
     limit = 15;
     index = 0;
+    maxCharacters = 63;
 
-    constructor(private router: Router, private http: HttpClient) {  }
+    constructor(
+        private router: Router, 
+        private http: HttpClient, 
+        private api: ApiService, 
+        public toastController: ToastController
+        ) {  }
 
     ngOnInit() {
        this.loadChars();
     }
 
     loadChars(event?){
-        this.http.get(`https://www.breakingbadapi.com/api/characters?limit=${this.limit}&offset=${this.index}`)
-            .subscribe(res => {  this.chars = this.chars.concat(res) }, erro => {
+        this.api.getPaginatedCharacters(this.limit, this.index, this.chars)
+            .subscribe(res => {  this.chars = this.chars.concat(res); }, erro => {
                 if(erro.status == 429) {
                   console.log('Too many requests. Try again later.');
+                  this.presentToast('Too many requests. Try again later.');
                 }
             })
         if(event){
@@ -37,9 +46,17 @@ export class CastPage implements OnInit {
     loadData(event?){
         this.index += 15;
         this.loadChars(event);
-        if(this.index > 62){
+        if(this.index > this.maxCharacters-1){
             event.target.disable = true;
         }
+    }
+
+    async presentToast(msg: string) {
+        const toast = await this.toastController.create({
+            message: msg,
+            duration: 2000
+        });
+        toast.present();
     }
 
 }
