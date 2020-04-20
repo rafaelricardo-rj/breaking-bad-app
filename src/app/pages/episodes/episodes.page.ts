@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { MyFilterPipePipe } from '../../pipes/my-filter-pipe.pipe';
+import { ApiService } from 'src/app/services/api.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-episodes',
@@ -10,12 +12,15 @@ import { MyFilterPipePipe } from '../../pipes/my-filter-pipe.pipe';
   styleUrls: ['./episodes.page.scss'],
 })
 export class EpisodesPage implements OnInit {
-    
-  episodes: Observable<any>;    
-
-  constructor(private router: Router, private http: HttpClient) { }
+    episodes: Observable<any>
+  constructor(
+      private router: Router, 
+      private http: HttpClient, 
+      private api: ApiService, 
+    ) { }
 
   ngOnInit() {
-      this.episodes = this.http.get('https://www.breakingbadapi.com/api/episodes');      
+    this.episodes = this.api.getEpisodesAll();
   }
+
 }

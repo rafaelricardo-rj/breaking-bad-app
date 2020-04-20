@@ -31,7 +31,7 @@ export class CastPage implements OnInit {
     }
 
     loadChars(event?){
-        this.api.getPaginatedCharacters(this.limit, this.index, this.chars)
+        this.api.getPaginatedCharacters(this.limit, this.index)
             .subscribe(res => {  this.chars = this.chars.concat(res); }, erro => {
                 if(erro.status == 429) {
                   console.log('Too many requests. Try again later.');
