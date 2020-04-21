@@ -21,7 +21,7 @@ export class EpisodesPage implements OnInit {
     public loading: LoadingSingletonService
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.loading.show();
     this.episodes = this.api.getEpisodesAll();
     this.episodes.subscribe(

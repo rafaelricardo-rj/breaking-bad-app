@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from './services/helper.service';
 import { LoadingSingletonService } from './services/loading-singleton.service';
+import { CharactersImagesSingletonService } from './services/characters-images-singleton.service';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { LoadingSingletonService } from './services/loading-singleton.service';
     SplashScreen,
     HelperService,
     LoadingSingletonService,
+    CharactersImagesSingletonService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

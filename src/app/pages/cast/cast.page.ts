@@ -25,7 +25,7 @@ export class CastPage implements OnInit {
         private api: ApiService, 
         public toastController: ToastController,
         public helpService: HelperService,
-        public loading : LoadingSingletonService,// check this class to see the comments and find out where it comes from
+        public loading : LoadingSingletonService// check this class to see the comments and find out where it comes from
         ) { }
 
     ngOnInit() {

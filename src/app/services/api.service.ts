@@ -18,15 +18,24 @@ export class ApiService {
         return this.http.get(`${this.urlApi}/characters?limit=${limit}&offset=${index}`);
     }
 
-    getEpisodesAll() {
-        return this.http.get(`${this.urlApi}/episodes`);
-    }
-
     getCharacter(id){
         return this.http.get(`${this.urlApi}/characters/${id}`);
     }
 
+    getCharacterAll(){
+        return this.http.get(`${this.urlApi}/characters`);
+    }
+
+    getEpisodesAll() {
+        return this.http.get(`${this.urlApi}/episodes`);
+    }
+
     getEpisode(id){
         return this.http.get(`${this.urlApi}/episodes/${id}`);
+    }
+
+    getQuotesAll() {
+        console.log("request quotes")
+        return this.http.get(`${this.urlApi}/quotes`);
     }
 }
