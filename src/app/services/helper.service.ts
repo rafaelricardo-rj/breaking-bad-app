@@ -16,7 +16,8 @@ export class HelperService {
     public async toast(msg: string) {
         const toast = await this.toastController.create({
             message: msg,
-            duration: 2000
+            duration: 2000,
+            position: 'top',
         });
         toast.present();
     };

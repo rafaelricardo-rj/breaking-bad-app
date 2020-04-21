@@ -4,14 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="episodes">
+<ion-content *ngIf="eps.length > 0">
     <ion-list class="episodes-list">
         <ion-list-header>
             <ion-chip color="danger">
-            <ion-label>Season 1</ion-label>
-        </ion-chip>
+                <ion-label>Season 1</ion-label>
+            </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of ( episodes | async ) | myfilter:{season:1}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:1}">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -24,7 +24,7 @@
                 <ion-label>Season 2</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of ( episodes | async ) | myfilter:{season:2}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:2}">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -37,7 +37,7 @@
                 <ion-label>Season 3</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of ( episodes | async ) | myfilter:{season:3}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:3}">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -50,7 +50,7 @@
                 <ion-label>Season 4</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of ( episodes | async ) | myfilter:{season:4}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:4}">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -63,7 +63,7 @@
                 <ion-label>Season 5</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of ( episodes | async ) | myfilter:{season:5}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:5}">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
