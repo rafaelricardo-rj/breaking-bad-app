@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ToastController } from '@ionic/angular';
 import { HelperService } from 'src/app/services/helper.service';
-import { LoadingController } from '@ionic/angular';
+import { LoadingSingletonService } from '../../services/loading-singleton.service';
 
 @Component({
   selector: 'app-cast',
@@ -19,14 +19,13 @@ export class CastPage implements OnInit {
     limit = 15;
     index = 0;
     maxCharacters = 63;
-    loading: any;
 
     constructor(
         private router: Router, 
         private api: ApiService, 
         public toastController: ToastController,
         public helpService: HelperService,
-        public loadingController : LoadingController
+        public loading : LoadingSingletonService,// check this class to see the comments and find out where it comes from
         ) { }
 
     ngOnInit() {
@@ -34,9 +33,7 @@ export class CastPage implements OnInit {
     }
 
     async loadCharsLoading(){
-        this.loading = await this.loadingController.create({ message: 'Please wait...', duration: 8000 });
-        await this.loading.present();
-
+        this.loading.show();
         this.api.getPaginatedCharacters(this.limit, this.index)
             .subscribe(res => {  
                 this.chars = this.chars.concat(res);
@@ -48,7 +45,7 @@ export class CastPage implements OnInit {
             })
     }
 
-    // event parameter could be null
+    // event parameter can be null
     loadChars(event?){
         
         this.api.getPaginatedCharacters(this.limit, this.index)

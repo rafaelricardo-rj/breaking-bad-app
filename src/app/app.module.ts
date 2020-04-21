@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from './services/helper.service';
+import { LoadingSingletonService } from './services/loading-singleton.service';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HelperService } from './services/helper.service';
     StatusBar,
     SplashScreen,
     HelperService,
+    LoadingSingletonService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
