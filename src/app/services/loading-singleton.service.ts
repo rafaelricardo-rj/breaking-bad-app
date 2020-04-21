@@ -31,7 +31,7 @@ export class LoadingSingletonService {
   constructor(public loadingController: LoadingController) { }
 
   async show(){
-    this.loading = await this.loadingController.create({ message: 'Please wait...', duration: 5000 });
+    this.loading = await this.loadingController.create({ message: 'Please wait...', duration: 10000 }); //10s
     this.loading.present();
   }
 

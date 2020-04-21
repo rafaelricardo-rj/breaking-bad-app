@@ -11,7 +11,7 @@
                 <ion-label>Season 1</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:1}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:1}" (click)="openDetails(episode)">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -24,7 +24,7 @@
                 <ion-label>Season 2</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:2}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:2}" (click)="openDetails(episode)">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -37,7 +37,7 @@
                 <ion-label>Season 3</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:3}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:3}" (click)="openDetails(episode)">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -50,7 +50,7 @@
                 <ion-label>Season 4</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:4}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:4}" (click)="openDetails(episode)">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -63,7 +63,7 @@
                 <ion-label>Season 5</ion-label>
             </ion-chip>
         </ion-list-header>
-        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:5}">
+        <ion-item button detail lines="inset" *ngFor="let episode of eps | myfilter:{season:5}" (click)="openDetails(episode)">
             <ion-label>
                 <h2>{{ episode.title }}</h2>
                 <p>Air date: {{ episode.title }}</p>
@@ -71,3 +71,5 @@
         </ion-item>
     </ion-list>
 </ion-content>
+<!-- if there are no results from the API, apply an empty content to allow a dark layer over the background image-->
+<ion-content fullscreen="true" *ngIf="eps.length == 0 || eps == null"></ion-content>

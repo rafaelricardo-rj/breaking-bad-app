@@ -25,4 +25,8 @@ export class ApiService {
     getCharacter(id){
         return this.http.get(`${this.urlApi}/characters/${id}`);
     }
+
+    getEpisode(id){
+        return this.http.get(`${this.urlApi}/episodes/${id}`);
+    }
 }

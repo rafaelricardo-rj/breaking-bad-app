@@ -22,3 +22,5 @@
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 </ion-content>
+<!-- if there are no results from the API, apply an empty content to allow a dark layer over the background image-->
+<ion-content fullscreen="true" *ngIf="chars.length == 0 || chars == null"></ion-content>

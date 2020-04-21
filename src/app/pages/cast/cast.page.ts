@@ -79,8 +79,6 @@ export class CastPage implements OnInit {
 
     openDetails(character) {
 	
-        //let split = character.url.split('/');
-        //let characterId = split[split.length-2];
         this.router.navigateByUrl(`/tabs/cast/${character.char_id}`);
         
     }
