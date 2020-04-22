@@ -14,7 +14,7 @@ export class ApiService {
     /**
      * This request would give you an array of 15 characters, starting at index 0 (the 1 first id).
      */
-    getPaginatedCharacters(limit, index) {
+    getPaginatedCharacters(limit: number, index: number) {
         return this.http.get(`${this.urlApi}/characters?limit=${limit}&offset=${index}`);
     }
 
@@ -35,7 +35,10 @@ export class ApiService {
     }
 
     getQuotesAll() {
-        console.log("request quotes")
         return this.http.get(`${this.urlApi}/quotes`);
+    }
+
+    getQuotesByAuthor(author: string) {
+        return this.http.get(`${this.urlApi}/quote?author=${author}`);
     }
 }
