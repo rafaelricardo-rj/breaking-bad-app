@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>death</ion-title>
+    <ion-title class="ion-text-center">Deaths</ion-title>
   </ion-toolbar>
+  <div id="background-searchbar">
+    <ion-searchbar (ionInput)="filterDeaths($event)"></ion-searchbar>
+  </div>
 </ion-header>
 
-<ion-content>
-
+<ion-content *ngIf="deathsArray.length > 0">
+  
+  <ion-list>
+    <ion-item button detail lines="inset" *ngFor="let d of deathsArray">
+      <ion-avatar slot="start">
+          <img src="{{ charsImages[d.death] == null ? noPicUrl : charsImages[d.death]}}">
+      </ion-avatar>
+      <ion-label>
+          <h2>{{ d.death }}</h2>
+          <p>Responsible: {{ d.responsible }}</p>
+      </ion-label>
+  </ion-item>
+</ion-list>
 </ion-content>

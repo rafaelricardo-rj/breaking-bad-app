@@ -47,13 +47,14 @@ export class QuotesPage implements OnInit {
   filterQuotes(ev){
     const val = ev.target.value;
     if(val && val.trim() != '' && val.length > 2){
-      console.log(val);
-	    this.quotes.subscribe( res => this.chars = res.filter( 
-                                                            res => res.quote.toLowerCase().indexOf(val.toLowerCase()) > -1 
-                                                            || 
-                                                            res.author.toLowerCase().indexOf(val.toLowerCase()) > -1
-                                                            )
-                           )
+      //console.log(val);
+	    this.quotes.subscribe(
+          res => this.chars = res.filter( 
+                res => res.quote.toLowerCase().indexOf(val.toLowerCase()) > -1 
+                || 
+                res.author.toLowerCase().indexOf(val.toLowerCase()) > -1
+              )
+      )
     } else {
       this.quotes.subscribe( res => this.chars = res );
     }

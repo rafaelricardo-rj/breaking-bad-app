@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ export class ApiService {
 
     readonly urlApi = "https://www.breakingbadapi.com/api";
 
-    constructor(private http: HttpClient, public toastController: ToastController) { }
+    constructor(private http: HttpClient) { }
 
     /**
      * This request would give you an array of 15 characters, starting at index 0 (the 1 first id).
@@ -38,7 +37,7 @@ export class ApiService {
         return this.http.get(`${this.urlApi}/quotes`);
     }
 
-    getQuotesByAuthor(author: string) {
-        return this.http.get(`${this.urlApi}/quote?author=${author}`);
+    getDeaths() {
+        return this.http.get(`${this.urlApi}/deaths`);
     }
 }
