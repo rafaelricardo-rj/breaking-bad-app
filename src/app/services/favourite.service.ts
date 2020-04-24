@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
 
 const STORAGE_KEY = "favCharacters";
+const STORAGE_FAV_EPI_KEY = "favEpisodes";
 
 @Injectable({
   providedIn: "root",
@@ -39,6 +40,40 @@ export class FavouriteService {
         result.splice(index, 1);
 
         return this.storage.set(STORAGE_KEY, result);
+      }
+    });
+  }
+  // ############## FAVOURITE EPISODES BELOW ################
+  getAllFavEpisodes() {
+    return this.storage.get(STORAGE_FAV_EPI_KEY);
+  }
+
+  isFavouriteEpi(epiId) {
+    return this.getAllFavEpisodes().then((result) => {
+      return result && result.indexOf(epiId) !== -1;
+    });
+  }
+
+  favouriteEpisode(epiId) {
+    return this.getAllFavEpisodes().then((result) => {
+      if (result) {
+        result.push(epiId);
+
+        return this.storage.set(STORAGE_FAV_EPI_KEY, result);
+      } else {
+        return this.storage.set(STORAGE_FAV_EPI_KEY, [epiId]);
+      }
+    });
+  }
+
+  unfavouriteEpisode(epiId) {
+    return this.getAllFavEpisodes().then((result) => {
+      if (result) {
+        var index = result.indexOf(epiId);
+
+        result.splice(index, 1);
+
+        return this.storage.set(STORAGE_FAV_EPI_KEY, result);
       }
     });
   }
