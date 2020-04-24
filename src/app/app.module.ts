@@ -12,12 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from './services/helper.service';
 import { LoadingSingletonService } from './services/loading-singleton.service';
 import { CharactersImagesSingletonService } from './services/characters-images-singleton.service';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,

@@ -4,6 +4,21 @@
       <ion-back-button defaulthref="/tabs/cast"></ion-back-button>
     </ion-buttons>
     <ion-title *ngIf="character">{{ character.name }}</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="unfavouriteChar()" *ngIf="isFavourite">
+
+        <ion-icon name="heart" slot="icon-only"></ion-icon>
+
+      </ion-button>
+
+      <ion-button (click)="favouriteChar()" *ngIf="!isFavourite">
+
+        <ion-icon name="heart-outline" slot="icon-only"></ion-icon>
+
+      </ion-button>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -36,7 +51,8 @@
         </ion-item>
         <ion-item>
           <ion-icon name="film-outline" slot="start"></ion-icon>
-          <ion-label>Season </ion-label><ion-label *ngFor="let s of character.appearance"> {{ s }}</ion-label>
+          <ion-label>Season </ion-label>
+          <ion-label *ngFor="let s of character.appearance"> {{ s }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
