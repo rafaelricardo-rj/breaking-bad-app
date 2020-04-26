@@ -25,9 +25,7 @@ export class DeathPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    //document.documentElement.style.setProperty(`--background`, this.backgroundList[0]);
     this.loadDeaths();
-    //this.changeBkgImageDeath(this.backgroundList[0]);
   }
 
   loadDeaths() {

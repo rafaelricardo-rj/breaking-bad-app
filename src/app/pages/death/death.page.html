@@ -10,13 +10,14 @@
 <ion-content *ngIf="deathsArray.length > 0" class="{{background}}">
   
   <ion-list>
-    <ion-item button detail lines="inset" *ngFor="let d of deathsArray">
+    <ion-item *ngFor="let d of deathsArray">
       <ion-avatar slot="start">
           <img src="{{ charsImages[d.death] == null ? noPicUrl : charsImages[d.death]}}">
       </ion-avatar>
       <ion-label>
           <h2>{{ d.death }}</h2>
           <p>Responsible: {{ d.responsible }}</p>
+          <p>Deaths: {{d.number_of_deaths}}</p>
       </ion-label>
   </ion-item>
 </ion-list>

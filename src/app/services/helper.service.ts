@@ -2,6 +2,12 @@ import {Injectable} from "@angular/core";
 import { ToastController } from '@ionic/angular';
 import { LoadingSingletonService } from './loading-singleton.service'
 
+/**
+ * This singleton was created to help showing a Toas in any part of the application without having to create an instance everytime it is necessaire.
+ * 
+ * Author: Rafael Ricardo. Adapted from ionicframework website
+ */
+
 @Injectable()
 export class HelperService {
     constructor(public toastController: ToastController, public loading: LoadingSingletonService) {}
