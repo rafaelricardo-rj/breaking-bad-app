@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title class="ion-text-center">Deaths</ion-title>
   </ion-toolbar>
   <div id="background-searchbar">
@@ -7,7 +7,7 @@
   </div>
 </ion-header>
 
-<ion-content *ngIf="deathsArray.length > 0">
+<ion-content *ngIf="deathsArray.length > 0" class="{{background}}">
   
   <ion-list>
     <ion-item button detail lines="inset" *ngFor="let d of deathsArray">

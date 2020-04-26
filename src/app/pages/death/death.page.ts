@@ -16,6 +16,7 @@ export class DeathPage implements OnInit {
   deathsArray = [];
   charsImages = this.charsImg.getImageUrl();
   noPicUrl    = "assets/img/no-pic.png";
+
   constructor(
     private api: ApiService,
     public helpService: HelperService,
@@ -24,7 +25,9 @@ export class DeathPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    //document.documentElement.style.setProperty(`--background`, this.backgroundList[0]);
     this.loadDeaths();
+    //this.changeBkgImageDeath(this.backgroundList[0]);
   }
 
   loadDeaths() {
@@ -58,5 +61,4 @@ export class DeathPage implements OnInit {
       this.deaths.subscribe( res => this.deathsArray = res );
     }
   }
-
 }
