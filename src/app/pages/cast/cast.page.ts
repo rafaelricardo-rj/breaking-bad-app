@@ -83,4 +83,8 @@ export class CastPage implements OnInit {
         
     }
 
+    goToCredits(){
+        this.router.navigateByUrl(`credits`);
+    }
+
 }
