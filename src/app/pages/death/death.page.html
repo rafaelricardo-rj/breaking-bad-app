@@ -7,7 +7,7 @@
   </div>
 </ion-header>
 
-<ion-content *ngIf="deathsArray.length > 0" class="{{background}}">
+<ion-content *ngIf="deathsArray.length > 0" [ngClass]="background">
   
   <ion-list>
     <ion-item *ngFor="let d of deathsArray">
