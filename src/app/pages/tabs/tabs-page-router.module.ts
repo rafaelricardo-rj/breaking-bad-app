@@ -50,6 +50,15 @@ const routes: Routes = [
             loadChildren: () => import('../death/death.module').then( m => m.DeathPageModule)
           }
         ]
+      },
+      {
+        path: 'camera',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../camera/camera.module').then( m => m.CameraPageModule)
+          }
+        ]
       }
     ]
   },
