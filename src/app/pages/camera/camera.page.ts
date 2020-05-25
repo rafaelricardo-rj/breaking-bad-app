@@ -12,6 +12,10 @@ export class CameraPage {
 
   constructor(private sanitizer: DomSanitizer)  { }
 
+ngOnInit() {
+    this.takePicture();
+  }
+
   async takePicture() {
     const image = await Plugins.Camera.getPhoto({
       quality: 100,
